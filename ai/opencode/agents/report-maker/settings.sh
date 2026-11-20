@@ -4,7 +4,7 @@ source "${MAIN_SCRIPT_DIR}/scripts/checkPackages.sh"
 
 description="Настройка агента Report-Maker"
 agent_name="Report-Maker"
-pkgs=("typst" "cargo" "just" "rust-wasm" "rust") 
+pkgs=("typst" "cargo" "just" "rust-wasm" "rust" "python" "python-pillow" "poppler" "ttf-liberation") 
 pkgs_typst=("modern-g7-32" "cetz" "gost-table" "tituls")
 
 local_typst_pkgs_dir="${HOME}/.local/share/typst/packages/local"
@@ -152,6 +152,10 @@ while true; do
             mkdir -p "${HOME}/.config/opencode/docs" # TODO Добавить переменную в скрипте выше
             rm -rf "${HOME}/.config/opencode/docs/${agent_name}"
             ln -s "${MAIN_SCRIPT_DIR}/ai/opencode/agents/report-maker/docs" "${HOME}/.config/opencode/docs/${agent_name}"
+
+            mkdir -p "${HOME}/.config/opencode/tools" # TODO Добавить переменную в скрипте выше
+            rm -rf "${HOME}/.config/opencode/tools/${agent_name}"
+            ln -s "${MAIN_SCRIPT_DIR}/ai/opencode/agents/report-maker/tools" "${HOME}/.config/opencode/tools/${agent_name}"
         else
             echo "Ошибка при установке зависимостей"
         fi
