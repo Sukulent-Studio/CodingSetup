@@ -1,0 +1,7 @@
+[package]
+name = "gost-table"
+version = "0.1.0"
+entrypoint = "gost-table.typ"
+authors = ["Sukulent <sukulent@example.com>"]
+license = "MIT"
+description = "Пакет добавляет создание таблиц, с автоматическими подписями Продолжение таблицы... ."

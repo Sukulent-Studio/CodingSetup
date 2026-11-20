@@ -1,0 +1,7 @@
+[package]
+name = "tituls"
+version = "0.1.0"
+entrypoint = "main.typ"
+authors = ["Sukulent <sukulent@example.com>"]
+license = "MIT"
+description = "Здесь будут лежать все титульники."
