@@ -1,9 +1,7 @@
 // ---------------------------------------------------------------
 // Титульный лист (ОмГТУ), повторяет титульник из titul.pdf
 //
-// Использование в основном документе:
-//   #import "titul.typ": titul
-//   #titul(student: [Иванов И. И.], city-year: [Омск 2026])
+// Шаблон вызывается через titul() из main.typ.
 //
 // Все тексты вынесены в параметры, менять нужно только их.
 // ---------------------------------------------------------------
@@ -24,7 +22,8 @@
   doc-type: [ОТЧЁТ],
   discipline: [по дисциплине «Объектно-ориентированное программирование»],
   work: [Лабораторная работа №3],
-  student-line: [студента Пчёлкина Романа Валерьевича группы ПИН-241],
+  group: [ПИН-241],
+  student: [Пчёлкина Романа Валерьевича],
 
   doc-name: [Пояснительная записка],
   cipher: [Шифр работы От-2068998-43-ПИН-23-24 ПЗ],
@@ -33,9 +32,10 @@
   teacher-role: [Доцент, к.т.н.],
   teacher: [Степанов П.П.],
   student-role: [Студент],
-  student: [Пчёлкин Р. В.],
+  student-signature: [Пчёлкин Р. В.],
 
-  city-year: [Омск 2025],
+  city: [Омск],
+  year: [2025],
 ) = page(
   paper: "a4",
   margin: (left: 30mm, right: 10mm, top: 20mm, bottom: 20mm),
@@ -63,7 +63,7 @@
     *#doc-type* \
     #discipline \
     // #work \
-    #student-line
+    студента #student группы #group
   ]
 
   #titul-blank(1)
@@ -82,23 +82,10 @@
     columns: (319pt, 1fr),
     row-gutter: titul-lead + titul-pitch,
     [#teacher-role], [#teacher],
-    [#student-role], [#student],
+    [#student-role], [#student-signature],
   )
 
   // Город и год прижаты к низу страницы
   #v(1fr)
-  #align(center)[#city-year]
+  #align(center)[#city #year]
 ]
-
-// ---------------------------------------------------------------
-// Пример: титульник + следующая страница с номером 2
-// (при импорте через #import этот блок в документ не попадает)
-// ---------------------------------------------------------------
-#titul()
-
-#set page(
-  paper: "a4",
-  margin: (left: 30mm, right: 10mm, top: 20mm, bottom: 20mm),
-  numbering: "1",
-)
-#set text(font: "Liberation Serif", size: 14pt, lang: "ru")
