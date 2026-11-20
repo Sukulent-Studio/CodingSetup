@@ -148,6 +148,10 @@ while true; do
             mkdir -p "${HOME}/.config/opencode/agent" # TODO Добавить переменную в скрипте выше
             rm -f "${HOME}/.config/opencode/agent/${agent_name}.md"
             ln -s "${MAIN_SCRIPT_DIR}/ai/opencode/agents/report-maker/${agent_name}.md" "${HOME}/.config/opencode/agent/${agent_name}.md"
+
+            mkdir -p "${HOME}/.config/opencode/docs" # TODO Добавить переменную в скрипте выше
+            rm -rf "${HOME}/.config/opencode/docs/${agent_name}"
+            ln -s "${MAIN_SCRIPT_DIR}/ai/opencode/agents/report-maker/docs" "${HOME}/.config/opencode/docs/${agent_name}"
         else
             echo "Ошибка при установке зависимостей"
         fi
